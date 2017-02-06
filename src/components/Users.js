@@ -3,23 +3,14 @@ import { connect } from 'react-redux'
 
 export class Users extends Component {
   render(){
-    let users = this.props.users.map(function(user){
-      return <li>{user.userName}</li>
-    })
     return(
         <div>
           <ul>
-            {users}
+            foo
           </ul>
         </div>
     )
   }
 }
 
-
-export const ConnectedUsers = connect(mapStateToProps)(Users)
-
-
-function mapStateToProps(state){
-  return {users: state.users, primaryUser: state.users[0]}
-}
+export const ConnectedUsers = Users
