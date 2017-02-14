@@ -1,3 +1,6 @@
-export default function addUser(user){
-  return {type: 'ADD_USER', payload: user}
+export const addUser = (user) => {
+  return {
+    type: 'ADD_USER', 
+    user
+  };
 }
