@@ -20,7 +20,7 @@
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
     "sinon": "^6.1.4",
-    "webpack": "^4.16.2"
+    "webpack": "^3.6.2"
   },
   "scripts": {
     "start": "react-scripts start",

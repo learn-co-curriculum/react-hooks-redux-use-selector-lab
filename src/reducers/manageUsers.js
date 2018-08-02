@@ -3,9 +3,11 @@ export default function manageUsers(state = {
 }, action){
   switch (action.type) {
     case 'ADD_USER':
-      return Object.assign({}, state, {
-        users: state.users.concat(action.user)
-      });
+      console.log('adding ', action.user);
+      return {
+        ...state,
+        users: [...state.users, action.user]
+      }
 
     default:
       return state;
