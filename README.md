@@ -2,23 +2,23 @@
 
 ## Objectives
 
-* Use the __React Redux__ library to connect the store to the __React__
-application.   
+- Use the **React Redux** library to connect the store to the **React**
+  application.
 
-* Utilize the __<Provider />__ component, the `connect` function and
-`mapStateToProps` to access __Redux__ store content.
+- Utilize the **<Provider />** component, the `connect` function and
+  `mapStateToProps` to access **Redux** store content.
 
 ## Overview
 
 In this lesson, we want to explore how `mapStateToProps` is used to connect
-regular React components with the __Redux__ store. This is also a good
+regular React components with the **Redux** store. This is also a good
 opportunity to review the steps for using the `redux` and `react-redux`
 packages in your app.
 
 ## Instructions
 
 Some files are provided, including `UserInput` and the reducer, `manageUsers`,
-but the __Redux__ store isn't fully hooked up yet.
+but the **Redux** store isn't fully hooked up yet.
 
 #### Connecting to Redux
 
@@ -30,12 +30,12 @@ your components access to the store.
 #### Test by Dispatching an Action
 
 Run `npm start` and open up your browser's dev console. If everything is
-connected correctly in `index.js`, submitting something using the provided form
-should cause a `console.log` to fire in our reducer, indicating that the values
-have been added to our store.
+connected correctly in `index.js`, a form should appear in the browser.
+Submitting something using the form will cause a `console.log` to fire in our
+reducer, indicating that the values have been added to our store.
 
-In `UserInput.js`, take note of the way an action is dispatched to the __Redux__
-store, as it is slightly different than what we've seen before:
+In `UserInput.js`, we can see the code that fires when we press the submit
+button:
 
 ```js
 ...
@@ -45,30 +45,44 @@ handleOnSubmit = (event) => {
   this.props.dispatch({type: 'ADD_USER', user: this.state})
 }
 
-...
+render() {
+  return(
+    <form onSubmit={this.handleOnSubmit}>
+      ...
+    </form>
+  )
+}
+```
 
+We can see that, _on submit_, `handleOnSubmit()` is called.
+`event.preventDefault()` is called to stop the page from refreshing, then
+`this.props.dispatch()` is called with a custom action, `{type: 'ADD_USER', user: this.state}`.
+
+```js
 export default connect()(UserInput);
 ```
 
-Wrapping a component in `connect` without any arguments will still provide _one_
-prop, `dispatch()`! This makes it possible for us to dispatch whatever actions
-we want, from _anywhere_. We will go into greater detail on how we can apply
-dispatch using `connect`, but using `this.props.dispatch()` is a handy and
-simple way to allow components to interact with the store.
+Wrapping a component in `connect` as we see above will, by default, pass _one_
+function to props: `dispatch()`. This makes it possible for us to dispatch
+custom actions, as we see here in `handleOnSubmit()`. extra functions.
+
+We will go into greater detail on how we can customize our dispatches using
+`connect`, but using `this.props.dispatch()` like this is a handy way to allow
+any component to interact with the store.
 
 #### Mapping State
 
 Now that we've got a working store, we want to get access to it and display the
 contents of our store's state.
 
-1. Connect the Users component similar to how it is connected in UserInput.
+1.  Connect the Users component similar to how it is connected in UserInput.
 
-2. Write a function in `Users.js`, but outside of the Users class called
-`mapStateToProps`. `mapStateToProps` accepts one argument, `state`, the current
-version of your store's state. Use `state` to access the array of `users`. Your
-`mapStateToProps` function should return an object with keys. Each key will
-become a prop in your component, allowing you to assign values based on the
-provided `state`.
+2.  Write a function in `Users.js`, but outside of the Users class called
+    `mapStateToProps`. `mapStateToProps` accepts one argument, `state`, the current
+    version of your store's state. Use `state` to access the array of `users`. Your
+    `mapStateToProps` function should return an object with keys. Each key will
+    become a prop in your component, allowing you to assign values based on the
+    provided `state`.
 
 The Users component should display the username of a user submitted to the
 store. To pass the final test, it should also display a total count of current
