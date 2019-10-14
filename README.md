@@ -64,7 +64,7 @@ export default connect()(UserInput);
 
 Wrapping a component in `connect` as we see above will, by default, pass _one_
 function to props: `dispatch()`. This makes it possible for us to dispatch
-custom actions, as we see here in `handleOnSubmit()`. extra functions.
+custom actions, as we see here in `handleOnSubmit()`.
 
 We will go into greater detail on how we can customize our dispatches using
 `connect`, but using `this.props.dispatch()` like this is a handy way to allow
@@ -75,14 +75,14 @@ any component to interact with the store.
 Now that we've got a working store, we want to get access to it and display the
 contents of our store's state.
 
-1.  Connect the Users component similar to how it is connected in UserInput.
+1. Connect the Users component similar to how it is connected in UserInput.
 
-2.  Write a function in `Users.js`, but outside of the Users class called
-    `mapStateToProps`. `mapStateToProps` accepts one argument, `state`, the current
-    version of your store's state. Use `state` to access the array of `users`. Your
-    `mapStateToProps` function should return an object with keys. Each key will
-    become a prop in your component, allowing you to assign values based on the
-    provided `state`.
+2. Write a function in `Users.js`, but outside of the Users class called
+   `mapStateToProps`. `mapStateToProps` accepts one argument, `state`, the
+   current version of your store's state. Use `state` to access the array of
+   `users`. Your `mapStateToProps` function should return an object with keys.
+   Each key will become a prop in your component, allowing you to assign values
+   based on the provided `state`.
 
 The Users component should display the username of a user submitted to the
 store. To pass the final test, it should also display a total count of current
