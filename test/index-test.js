@@ -118,23 +118,51 @@ describe('the application', () => {
         hometown: 'Mega-City One'
       }
     });
-
-    wrapper.update()
-
-    expect(wrapper.find(Users).html()).to.include('3')
-
-
     store.dispatch({
       type: 'ADD_USER',
       user: {
-        username: 'Fred',
-        hometown: 'Bedrock'
+        username: 'Goku',
+        hometown: 'Planet Vegeta'
+      }
+    });
+    store.dispatch({
+      type: 'ADD_USER',
+      user: {
+        username: 'Spiderman',
+        hometown: 'New York City'
+      }
+    });
+    store.dispatch({
+      type: 'ADD_USER',
+      user: {
+        username: 'Luca',
+        hometown: 'Suffern'
+      }
+    });
+    store.dispatch({
+      type: 'ADD_USER',
+      user: {
+        username: 'Lola',
+        hometown: 'Chestnut Ridge'
       }
     });
 
     wrapper.update()
 
-    expect(wrapper.find(Users).html()).to.include('4')
+    expect(wrapper.find(Users).html()).to.include('7')
+
+
+    store.dispatch({
+      type: 'ADD_USER',
+      user: {
+        username: 'Peach',
+        hometown: 'Brewster'
+      }
+    });
+
+    wrapper.update()
+
+    expect(wrapper.find(Users).html()).to.include('8')
 
   });
 
