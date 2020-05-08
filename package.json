@@ -25,7 +25,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha -R mocha-multi --reporter-options nyan=-,json=.results.json",
+    "test": "mocha --timeout 5000 -R mocha-multi --reporter-options nyan=-,json=.results.json",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
