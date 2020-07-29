@@ -5,7 +5,7 @@
 - Use the **React Redux** library to connect the store to the **React**
   application.
 
-- Utilize the **<Provider />** component, the `connect` function and
+- Utilize the `<Provider />` component, the `connect` function and
   `mapStateToProps` to access **Redux** store content.
 
 ## Overview
@@ -22,10 +22,10 @@ but the **Redux** store isn't fully hooked up yet.
 
 #### Connecting to Redux
 
-In `src/index.js`, use the `createStore` from `redux`, passing in the provided
-reducer, `manageUsers`, to create a `store`. Use `Provider` from `react-redux`
-to wrap `<App />`, passing `store` as a prop to the `Provider`. This will give
-your components access to the store.
+In `src/index.js`, use the `createStore` method from `redux`, passing in the 
+provided reducer, `manageUsers`, to create a `store`. Use `Provider` from 
+`react-redux` to wrap `<App />`, passing `store` as a prop to the `Provider`. 
+This will give your components access to the store.
 
 #### Test by Dispatching an Action
 
@@ -77,7 +77,7 @@ contents of our store's state.
 
 1. Connect the Users component similar to how it is connected in UserInput.
 
-2. Write a function in `Users.js`, but outside of the Users class called
+2. Write a function in `Users.js`, but outside of the Users class, called
    `mapStateToProps`. `mapStateToProps` accepts one argument, `state`, the
    current version of your store's state. Use `state` to access the array of
    `users`. Your `mapStateToProps` function should return an object with keys.
