@@ -95,3 +95,4 @@ With all tests passing, you should have a working form that adds and
 successfully displays usernames, as well as a total count of those users. While
 these are small bits of data, we've got a fully integrated React/Redux
 application, ready to be expanded upon!
+
