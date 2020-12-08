@@ -1,17 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App'
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
 
-import manageUsers from './reducers/manageUsers'
-
+import usersReducer from "./features/users/usersSlice";
 
 // add imports and code
 
-
 ReactDOM.render(
   // add imports and code
-  <App />
+  <App />,
   // add imports and code
-  ,
-  document.getElementById('root')
+  document.getElementById("root")
 );

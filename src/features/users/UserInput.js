@@ -9,7 +9,7 @@ function UserInput() {
     hometown: "",
   });
 
-  function handleInputChange() {
+  function handleInputChange(event) {
     setFormData({
       ...formData,
       [event.target.id]: event.target.value,
