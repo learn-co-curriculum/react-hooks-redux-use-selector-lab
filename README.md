@@ -1,4 +1,4 @@
-# Mapping State to Props Using React and Redux
+# Access State with useSelector
 
 ## Objectives
 
