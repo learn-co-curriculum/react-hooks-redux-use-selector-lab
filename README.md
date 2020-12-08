@@ -5,26 +5,26 @@
 - Use the **React Redux** library to connect the store to the **React**
   application.
 
-- Utilize the `<Provider />` component, the `connect` function and
-  `mapStateToProps` to access **Redux** store content.
+- Utilize the `<Provider />` component and the `useSelector` hook to access
+  **Redux** store content.
 
 ## Overview
 
-In this lesson, we want to explore how `mapStateToProps` is used to connect
+In this lesson, we want to explore how `useSelector` is used to connect
 regular React components with the **Redux** store. This is also a good
 opportunity to review the steps for using the `redux` and `react-redux`
 packages in your app.
 
 ## Instructions
 
-Some files are provided, including `UserInput` and the reducer, `manageUsers`,
-but the **Redux** store isn't fully hooked up yet.
+Some files are provided, including `UserInput` and the reducer in the
+`usersSlice.js` file, but the **Redux** store isn't fully hooked up yet.
 
 #### Connecting to Redux
 
-In `src/index.js`, use the `createStore` method from `redux`, passing in the 
-provided reducer, `manageUsers`, to create a `store`. Use `Provider` from 
-`react-redux` to wrap `<App />`, passing `store` as a prop to the `Provider`. 
+In `src/index.js`, use the `createStore` method from `redux`, passing in the
+provided reducer, `usersReducer`, to create a `store`. Use `Provider` from
+`react-redux` to wrap `<App />`, passing `store` as a prop to the `Provider`.
 This will give your components access to the store.
 
 #### Test by Dispatching an Action
@@ -38,56 +38,42 @@ In `UserInput.js`, we can see the code that fires when we press the submit
 button:
 
 ```js
-...
+// ...
 
-handleOnSubmit = (event) => {
+function handleOnSubmit(event) {
   event.preventDefault();
-  this.props.dispatch({type: 'ADD_USER', user: this.state})
+  dispatch({ type: "users/add", payload: formData });
 }
 
-render() {
-  return(
-    <form onSubmit={this.handleOnSubmit}>
-      ...
-    </form>
-  )
-}
+return <form onSubmit={handleOnSubmit}>{/* ... */}</form>;
 ```
 
 We can see that, _on submit_, `handleOnSubmit()` is called.
 `event.preventDefault()` is called to stop the page from refreshing, then
-`this.props.dispatch()` is called with a custom action, `{type: 'ADD_USER', user: this.state}`.
+`dispatch()` is called with a custom action,
+`{type: 'users/add', payload: formData}`.
 
-```js
-export default connect()(UserInput);
-```
+The `dispatch` function is provided by calling the `useDispatch` hook from
+**React Redux** in our component
 
-Wrapping a component in `connect` as we see above will, by default, pass _one_
-function to props: `dispatch()`. This makes it possible for us to dispatch
-custom actions, as we see here in `handleOnSubmit()`.
-
-We will go into greater detail on how we can customize our dispatches using
-`connect`, but using `this.props.dispatch()` like this is a handy way to allow
-any component to interact with the store.
-
-#### Mapping State
+#### Using the useSelector Hook
 
 Now that we've got a working store, we want to get access to it and display the
 contents of our store's state.
 
-1. Connect the Users component similar to how it is connected in UserInput.
+1. Import the `useSelector` hook in `Users.js`
 
-2. Write a function in `Users.js`, but outside of the Users class, called
-   `mapStateToProps`. `mapStateToProps` accepts one argument, `state`, the
-   current version of your store's state. Use `state` to access the array of
-   `users`. Your `mapStateToProps` function should return an object with keys.
-   Each key will become a prop in your component, allowing you to assign values
-   based on the provided `state`.
+2. Call `useSelector` inside your component, passing in a callback function that
+   accepts one argument, `state`, the current version of your store's state. Use
+   `state` to access the array of `users` and return that from the callback
+   function. Save the return value of calling `useSelector` to a variable so
+   that you can use the `users` array in your component.
 
 The Users component should display the username of a user submitted to the
 store. To pass the final test, it should also display a total count of current
-users. Try to use `mapStateToProps` to solve both, returning two keys, one for
-`users` and one for the `userCount`.
+users. Try to use `useSelector` to solve both. You can call `useSelector`
+multiple times to return different values: one for `users` and one for the
+`userCount`.
 
 ## Conclusion
 
@@ -95,4 +81,3 @@ With all tests passing, you should have a working form that adds and
 successfully displays usernames, as well as a total count of those users. While
 these are small bits of data, we've got a fully integrated React/Redux
 application, ready to be expanded upon!
-

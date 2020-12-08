@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
-import UserInput from './components/UserInput'
-import ConnectedUsers from './components/Users'
+import React from "react";
+import UserInput from "./features/users/UserInput";
+import ConnectedUsers from "./features/users/Users";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <UserInput />
-        <ConnectedUsers />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div>
+      <UserInput />
+      <ConnectedUsers />
+    </div>
+  );
 }
 
 export default App;
