@@ -20,14 +20,14 @@ packages in your app.
 Some files are provided, including `UserInput` and the reducer in the
 `usersSlice.js` file, but the **Redux** store isn't fully hooked up yet.
 
-#### Connecting to Redux
+### Connecting to Redux
 
 In `src/index.js`, use the `createStore` method from `redux`, passing in the
 provided reducer, `usersReducer`, to create a `store`. Use `Provider` from
 `react-redux` to wrap `<App />`, passing `store` as a prop to the `Provider`.
 This will give your components access to the store.
 
-#### Test by Dispatching an Action
+### Test by Dispatching an Action
 
 Run `npm start` and open up your browser's dev console. If everything is
 connected correctly in `index.js`, a form should appear in the browser.
@@ -56,7 +56,7 @@ We can see that, _on submit_, `handleOnSubmit()` is called.
 The `dispatch` function is provided by calling the `useDispatch` hook from
 **React Redux** in our component
 
-#### Using the useSelector Hook
+### Using the useSelector Hook
 
 Now that we've got a working store, we want to get access to it and display the
 contents of our store's state.
