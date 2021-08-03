@@ -4,7 +4,6 @@
 
 - Use the **React Redux** library to connect the store to the **React**
   application.
-
 - Utilize the `<Provider />` component and the `useSelector` hook to access
   **Redux** store content.
 
