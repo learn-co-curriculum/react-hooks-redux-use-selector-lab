@@ -36,7 +36,7 @@ reducer, indicating that the values have been added to our store.
 In `UserInput.js`, we can see the code that fires when we press the submit
 button:
 
-```js
+```jsx
 // ...
 
 function handleOnSubmit(event) {
