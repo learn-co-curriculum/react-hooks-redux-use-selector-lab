@@ -1,11 +1,11 @@
 # Access State with useSelector
 
-## Objectives
+## Learning Goals
 
 - Use the **React Redux** library to connect the store to the **React**
-  application.
+  application
 - Utilize the `<Provider />` component and the `useSelector` hook to access
-  **Redux** store content.
+  **Redux** store content
 
 ## Overview
 
