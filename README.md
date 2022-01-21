@@ -2,22 +2,21 @@
 
 ## Learning Goals
 
-- Use the **React Redux** library to connect the store to the **React**
+- Use the `react-redux` library to connect the Redux store to the React
   application
 - Utilize the `<Provider />` component and the `useSelector` hook to access
-  **Redux** store content
+  Redux store content
 
 ## Overview
 
-In this lesson, we want to explore how `useSelector` is used to connect
-regular React components with the **Redux** store. This is also a good
-opportunity to review the steps for using the `redux` and `react-redux`
-packages in your app.
+In this lesson, we want to explore how `useSelector` is used to connect regular
+React components with the Redux store. This is also a good opportunity to review
+the steps for using the `redux` and `react-redux` packages in your app.
 
 ## Instructions
 
 Some files are provided, including `UserInput` and the reducer in the
-`usersSlice.js` file, but the **Redux** store isn't fully hooked up yet.
+`usersSlice.js` file, but the Redux store isn't fully hooked up yet.
 
 ### Connecting to Redux
 
@@ -53,15 +52,14 @@ We can see that, _on submit_, `handleOnSubmit()` is called.
 `{type: 'users/add', payload: formData}`.
 
 The `dispatch` function is provided by calling the `useDispatch` hook from
-**React Redux** in our component
+`react-redux` in our component.
 
-### Using the useSelector Hook
+### Using the `useSelector` Hook
 
 Now that we've got a working store, we want to get access to it and display the
 contents of our store's state.
 
 1. Import the `useSelector` hook in `Users.js`
-
 2. Call `useSelector` inside your component, passing in a callback function that
    accepts one argument, `state`, the current version of your store's state. Use
    `state` to access the array of `users` and return that from the callback
